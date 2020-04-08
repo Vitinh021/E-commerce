@@ -5,17 +5,19 @@
  */
 package loja;
 
+import visao.TelaLogin;
+
 /**
  *
- * @author pc
+ * @author Marcos victor
  */
 public class Loja {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+        new TelaLogin();
     }
     
 }
