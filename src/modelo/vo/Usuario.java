@@ -14,8 +14,13 @@ public class Usuario implements Serializable {
     private Integer id;
     @Transient
     public static final int MASTER = 2, ADMINISTRADOR = 1, VENDEDOR = 0;
-    private String nome, email, senha;
+    private String nome, senha;
     private int permissao;
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", nome=" + nome + ", senha=" + senha + ", permissao=" + permissao + '}';
+    }
 
     public String getNome() {
         return nome;
@@ -24,12 +29,6 @@ public class Usuario implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    @Override
-    public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", permissao=" + permissao + '}';
-    }
-
     
     public Integer getId() {
         return id;
@@ -37,14 +36,6 @@ public class Usuario implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getSenha() {

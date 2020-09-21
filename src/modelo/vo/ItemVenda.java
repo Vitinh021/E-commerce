@@ -1,18 +1,26 @@
 package modelo.vo;
 
-public class ItemVenda {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class ItemVenda implements Serializable {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
-    private int quantidade;
+    private float precoTotal, quantidade;
+    @ManyToOne
     private Produto produto;
+    @ManyToOne
     private Venda venda;
-    
+
     @Override
     public String toString() {
-        return "ItemVenda{" + "quantidade=" + quantidade + ", produto=" + produto + '}';
-    }
-    
-    public int getQuantidade() {
-        return quantidade;
+        return "ItemVenda{" + "id=" + id + ", quantidade=" + quantidade + ", precoTotal=" + precoTotal + ", produto=" + produto + ", venda=" + venda + '}';
     }
 
     public int getId() {
@@ -23,10 +31,20 @@ public class ItemVenda {
         this.id = id;
     }
 
-    
+    public float getQuantidade() {
+        return quantidade;
+    }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(float quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public float getPrecoTotal() {
+        return precoTotal;
+    }
+
+    public void setPrecoTotal(float precoTotal) {
+        this.precoTotal = precoTotal;
     }
 
     public Produto getProduto() {
@@ -44,6 +62,6 @@ public class ItemVenda {
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
-
+    
  
 }

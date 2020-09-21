@@ -1,53 +1,61 @@
 package modelo.vo;                
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-
-public class Venda{
-
+@Entity
+public class Venda implements Serializable{
+    
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
-    private String opcao_venda;
+    private String opcaoVenda, local;
     private String data;
     private float valor, desconto;
-    
-    private ArrayList<ItemVenda> itens = new ArrayList();
-
-    public ArrayList<ItemVenda> getItens() {
-        return itens;
-    }
-
-    public void setItens(ArrayList<ItemVenda> itens) {
-        this.itens = itens;
-    }
-    
-    public int getId() {
-        return id;
-    }
+    @OneToOne
+    private Usuario usuario;
+    private ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
 
     @Override
     public String toString() {
-        return "Venda{" + "opcao_venda=" + opcao_venda + ", data=" + data + ", valor=" + valor + '}';
+        return "Venda{" + "id=" + id + ", opcaoVenda=" + opcaoVenda + ", local=" + local + ", data=" + data + ", valorTotal=" + valor + ", desconto=" + desconto + ", itens=" + itens + '}';
     }
-    
+
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String opcao_venda() {
-        return opcao_venda;
+    public String getOpcaoVenda() {
+        return opcaoVenda;
     }
 
-    public void setOpcao_venda(String opcao_venda) {
-        this.opcao_venda = opcao_venda;
+    public void setOpcaoVenda(String opcaoVenda) {
+        this.opcaoVenda = opcaoVenda;
     }
 
-    public String getData() {
-        return data;
+    public String getLocal() {
+        return local;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public float getValor() {
@@ -65,5 +73,21 @@ public class Venda{
     public void setDesconto(float desconto) {
         this.desconto = desconto;
     }
-    
+
+    public ArrayList<ItemVenda> getItens() {
+        return itens;
+    }
+
+    public void setItens(ArrayList<ItemVenda> itens) {
+        this.itens = itens;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
 }

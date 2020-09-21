@@ -48,5 +48,10 @@ Contributor(s):
     <property name="hibernate.connection.password">1234523</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="modelo.vo.Usuario"/>
+    <mapping class="modelo.vo.Produto"/>
+    <mapping class="modelo.vo.Venda"/>
+    <mapping class="modelo.vo.ItemVenda"/>
+    <mapping class="modelo.vo.DespesaEmpresa"/>
+    <mapping class="modelo.vo.DespesaPessoal"/>
   </session-factory>
 </hibernate-configuration>

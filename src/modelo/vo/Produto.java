@@ -1,23 +1,33 @@
 package modelo.vo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class Produto {
-
-    private int id;
-    private int quantidade;
-    private String codigo;
-    private String nome;
-    private float preco;
-   
+@Entity
+public class Produto implements Serializable {
     
-
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
+    //float por causa dos oxfrod, 2 metros e 5 cm
+    private float quantidade;
+    private String nome, codigo;
+    private float preco;
+    
     @Override
     public String toString() {
         return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + '}';
     }
 
-    public int getQuantidade() {
+    public float getQuantidade() {
         return quantidade;
+    }
+
+    public void setQuantidade(float quantidade) {
+        this.quantidade = quantidade;
     }
 
     public int getId() {

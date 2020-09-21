@@ -5,7 +5,7 @@
  */
 package loja;
 
-import visao.TelaLogin;
+import visao.Login;
 
 /**
  *
@@ -17,7 +17,7 @@ public class Loja {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        new TelaLogin();
+        new Login();
     }
     
 }
