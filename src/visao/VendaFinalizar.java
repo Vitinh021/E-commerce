@@ -1,23 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package visao;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.text.NumberFormat;
-import java.util.Date;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import modelo.dao.GenericoDAO;
 import modelo.dao.HibernateUtil;
-import modelo.vo.ItemVenda;
-import modelo.vo.Usuario;
+import modelo.vo.FluxoCaixa;
 import modelo.vo.Venda;
 import org.hibernate.Session;
-import util.DataHora;
+import util.Data;
 
 /**
  *
@@ -27,24 +20,22 @@ public class VendaFinalizar extends javax.swing.JPanel {
 
     private GenericoDAO<Venda> genericoVenda;
     private VendaProximo vendaProximo;
-    private Usuario usuarioOBJ;
     JInternalFrame frameInternoFinalizar, frameInternoProximo;
 
-    public VendaFinalizar(VendaProximo vendaProximo, Usuario usu, JInternalFrame frameInternoFinalizar, JInternalFrame frameInternoProximo) throws InterruptedException {
+    public VendaFinalizar(VendaProximo vendaProximo, JInternalFrame frameInternoFinalizar, JInternalFrame frameInternoProximo) {
         initComponents();
         this.vendaProximo = vendaProximo;
-        this.usuarioOBJ = usu;
         this.frameInternoFinalizar = frameInternoFinalizar;
         this.frameInternoProximo = frameInternoProximo;
 
-        this.data.setText(DataHora.getData());
+        this.data.setText(Data.getData());
 
-        this.usuario.setText(usu.getNome());
+        this.usuario.setText(vendaProximo.getUsuarioOBJ().getNome());
         this.subTotal.setText(vendaProximo.getTotal().getText());
         this.troco.setText("");
         this.total.setText("");
-        this.valor.setText("");
-        this.desconto.setText("0,00");
+        this.dinheiro.setText("");
+        this.desconto.setText("0,0");
 
         this.setBackground(Color.blue);
 
@@ -80,14 +71,14 @@ public class VendaFinalizar extends javax.swing.JPanel {
     private boolean validarCampos() {
         float dinheiroFLOAT = 0, descontoFLOAT = 0, subTotalFLOAT = 0, totalVendaFLOAT = 0, trocoFLOAT = 0;
 
-        if (this.desconto.getText().equals("") || this.valor.getText().equals("")) {
+        if (this.desconto.getText().equals("") || this.dinheiro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Complete todos os campos", "Atenção", JOptionPane.WARNING_MESSAGE);
             return false;
         } else {
             NumberFormat nf = NumberFormat.getInstance();//formata o total
             nf.setMaximumFractionDigits(2);//seto o máximo de casas decimais para 2
 
-            dinheiroFLOAT = Float.parseFloat(this.valor.getText().replace(",", "."));
+            dinheiroFLOAT = Float.parseFloat(this.dinheiro.getText().replace(",", "."));
             descontoFLOAT = Float.parseFloat(this.desconto.getText().replace(",", "."));
             subTotalFLOAT = Float.parseFloat(this.subTotal.getText());
             totalVendaFLOAT = subTotalFLOAT - descontoFLOAT;
@@ -100,7 +91,7 @@ public class VendaFinalizar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Valor insuficiente", "Atenção", JOptionPane.WARNING_MESSAGE);
                 this.desconto.setText("0");
                 this.troco.setText("");
-                this.valor.setText("");
+                this.dinheiro.setText("");
                 this.total.setText("");
                 return false;
 
@@ -108,7 +99,7 @@ public class VendaFinalizar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Desconto exagerado", "Atenção", JOptionPane.WARNING_MESSAGE);
                 this.desconto.setText("0");
                 this.troco.setText("");
-                this.valor.setText("");
+                this.dinheiro.setText("");
                 this.total.setText("");
                 return false;
             } else {
@@ -130,24 +121,24 @@ public class VendaFinalizar extends javax.swing.JPanel {
         troco = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
         desconto = new javax.swing.JFormattedTextField();
-        valor = new javax.swing.JFormattedTextField();
+        dinheiro = new javax.swing.JFormattedTextField();
         data = new javax.swing.JFormattedTextField();
 
         total.setFont(new java.awt.Font("Noto Sans", 0, 20)); // NOI18N
         total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        total.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        total.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Total", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 0, 0))); // NOI18N
 
         subTotal.setFont(new java.awt.Font("Noto Sans", 0, 20)); // NOI18N
         subTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        subTotal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SubTotal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        subTotal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SubTotal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14), java.awt.Color.red)); // NOI18N
 
         usuario.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
-        usuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        usuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14), java.awt.Color.red)); // NOI18N
 
         local.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Afogados", "Carnaiba", "Flores" }));
         local.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Loja", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
-        opcaoVenda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Débito", "Crédito" }));
+        opcaoVenda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Debito", "Credito" }));
         opcaoVenda.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pagamento", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
 
         finalizar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
@@ -168,7 +159,7 @@ public class VendaFinalizar extends javax.swing.JPanel {
 
         troco.setFont(new java.awt.Font("Noto Sans", 0, 20)); // NOI18N
         troco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        troco.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Troco", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        troco.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Troco", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 0, 0))); // NOI18N
 
         voltar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         voltar.setText("Voltar");
@@ -190,12 +181,12 @@ public class VendaFinalizar extends javax.swing.JPanel {
         desconto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
         desconto.setFont(new java.awt.Font("Noto Sans", 0, 20)); // NOI18N
 
-        valor.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
-        valor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        valor.setFont(new java.awt.Font("Noto Sans", 0, 20)); // NOI18N
-        valor.addKeyListener(new java.awt.event.KeyAdapter() {
+        dinheiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dinheiro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        dinheiro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        dinheiro.setFont(new java.awt.Font("Noto Sans", 0, 20)); // NOI18N
+        dinheiro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                valorKeyReleased(evt);
+                dinheiroKeyReleased(evt);
             }
         });
 
@@ -207,103 +198,106 @@ public class VendaFinalizar extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(opcaoVenda, 0, 132, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(troco, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(local, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(subTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(data, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(local, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(238, 238, 238)
+                                .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(opcaoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(data, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(valor))))
-                .addGap(12, 18, Short.MAX_VALUE))
+                                .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(troco, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 14, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(local)
+                    .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(opcaoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(data, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(usuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(local, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(valor, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(opcaoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(troco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(troco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(finalizar)
-                    .addComponent(voltar)))
+                    .addComponent(voltar))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
-        if (validarCampos()) {
-            Venda venda = new Venda();
+        if (validarCampos() == true) {
+            Venda venda = this.vendaProximo.getVenda();
 
             //colocano dados na venda
-            venda.setUsuario(this.usuarioOBJ);
+            venda.setUsuario(this.vendaProximo.getUsuarioOBJ());
             venda.setValor(Float.parseFloat(this.total.getText().replace(",", ".")));
             venda.setDesconto(Float.parseFloat(this.desconto.getText().replace(",", ".")));
-            venda.setLocal(local.getItemAt(0));
-            venda.setOpcaoVenda(opcaoVenda.getItemAt(0));
-            venda.setData(data.getText());
+            venda.setLocal(local.getSelectedItem() + "");
+            venda.setOpcaoVenda(opcaoVenda.getSelectedItem() + "");
 
-            //salvando a venda
-            Session sessao = HibernateUtil.getSessionFactory().openSession();
-            this.genericoVenda = new GenericoDAO<Venda>(Venda.class, sessao);
-            this.genericoVenda.save(venda);
-            sessao.close();
+            String[] dataFormatada = data.getText().split("/");
+            String novaData = dataFormatada[2] + "/" + dataFormatada[1] + "/" + dataFormatada[0];
 
-            //sessão de itens
-            Session sessaoItem = HibernateUtil.getSessionFactory().openSession();
-            GenericoDAO<ItemVenda> genericoItem = new GenericoDAO<ItemVenda>(ItemVenda.class, sessaoItem);
+            venda.setData(novaData);
 
-            //salvando itens na venda e no BD
-            for (ItemVenda item : vendaProximo.getItens()) {
-                item.setVenda(venda);
-                genericoItem.save(item);
-            }
-            sessaoItem.close();
+            //sessao venda
+            Session sessao_venda = HibernateUtil.getSessionFactory().openSession();
+            this.genericoVenda = new GenericoDAO<Venda>(Venda.class, sessao_venda);
 
-            JOptionPane.showMessageDialog(null, "Finalizada", "Informação", JOptionPane.INFORMATION_MESSAGE);
+            this.genericoVenda.update(venda);
+            sessao_venda.close();
+
+            //sessao fluxo caixa
+            Session sessao_fluxo = HibernateUtil.getSessionFactory().openSession();
+            GenericoDAO<FluxoCaixa> generico_fluxo = new GenericoDAO<FluxoCaixa>(FluxoCaixa.class, sessao_fluxo);
+
+            FluxoCaixa fluxo = new FluxoCaixa();
+            fluxo.setVenda(venda);
+            fluxo.setDescricao("Venda");
+            fluxo.setDataEmissao(novaData);
+            fluxo.setDataVencimento("sem");
+            fluxo.setDataPagamento("sem");
+            fluxo.setValor(venda.getValor());
+            fluxo.setTipo("Entrada");
+            fluxo.setSituacao("Fechada");
+
+            //salvando fluxo
+            generico_fluxo.save(fluxo);
+            sessao_fluxo.close();
+
+            JOptionPane.showMessageDialog(null, "Venda finalizada", "Informação", JOptionPane.INFORMATION_MESSAGE);
             this.frameInternoFinalizar.dispose();
             this.frameInternoProximo.dispose();
         }
@@ -334,15 +328,16 @@ public class VendaFinalizar extends javax.swing.JPanel {
         this.voltar.setForeground(Color.black);
     }//GEN-LAST:event_voltarMouseExited
 
-    private void valorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valorKeyReleased
+    private void dinheiroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dinheiroKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             validarCampos();
         }
-    }//GEN-LAST:event_valorKeyReleased
+    }//GEN-LAST:event_dinheiroKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField data;
     private javax.swing.JFormattedTextField desconto;
+    private javax.swing.JFormattedTextField dinheiro;
     private javax.swing.JButton finalizar;
     private javax.swing.JComboBox<String> local;
     private javax.swing.JComboBox<String> opcaoVenda;
@@ -350,7 +345,6 @@ public class VendaFinalizar extends javax.swing.JPanel {
     private javax.swing.JLabel total;
     private javax.swing.JLabel troco;
     private javax.swing.JLabel usuario;
-    private javax.swing.JFormattedTextField valor;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

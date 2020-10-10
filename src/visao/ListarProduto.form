@@ -16,30 +16,38 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane2" min="-2" pref="600" max="-2" attributes="0"/>
-          <Component id="nome" min="-2" pref="600" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
-              <Component id="remover" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
+              <Component id="valorTotal" min="-2" pref="101" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="editar" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="codigo" min="-2" pref="300" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="nome" min="-2" pref="294" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane2" alignment="0" min="-2" pref="600" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="240" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="nome" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="nome" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="codigo" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="280" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="remover" min="-2" max="-2" attributes="0"/>
                   <Component id="editar" min="-2" max="-2" attributes="0"/>
+                  <Component id="valorTotal" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -122,19 +130,6 @@
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nomeKeyReleased"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="remover">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Noto Sans" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Remover"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="removerMouseExited"/>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="removerMouseEntered"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removerActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="editar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -147,6 +142,35 @@
         <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="editarMouseEntered"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="codigo">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder position="3" title="Codigo">
+              <Font PropertyName="font" name="Dialog" size="14" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="codigoKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="valorTotal">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Noto Sans" size="14" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder position="3" title="Total">
+              <Font PropertyName="font" name="Dialog" size="12" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

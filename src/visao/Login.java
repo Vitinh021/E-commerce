@@ -34,17 +34,6 @@ public class Login extends javax.swing.JFrame {
         this.setSize(280, 180);
         this.setLocationRelativeTo(null);
         this.senha.setEchoChar('•');
-
-        Session sessao = HibernateUtil.getSessionFactory().openSession();
-        this.genericoUsu = new GenericoDAO(Usuario.class, sessao);
-
-        //sql responsavel por pegar os dados na base
-        //sempre modificar quando mudar de objeto 
-        String sql = "select * from Usuario where nome like ? and senha like ?";
-        String[] atributos = new String[]{"nome", "senha"};
-        String[] valores = new String[]{nome.getText() + "%", senha.getText() + "%"};
-
-        this.usuarios = (ArrayList<Usuario>) this.genericoUsu.getListBySQL(sql, atributos, valores);
         this.setVisible(true);
     }
 
@@ -65,7 +54,6 @@ public class Login extends javax.swing.JFrame {
 
         botaoEntrar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         botaoEntrar.setText("Entrar");
-        botaoEntrar.setFocusPainted(false);
         botaoEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botaoEntrarMouseExited(evt);
@@ -107,7 +95,7 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(verSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
+                        .addGap(102, 102, 102)
                         .addComponent(botaoEntrar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -129,24 +117,25 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
-        boolean validarUsuario = true;
-        String senhaa = new String(this.senha.getPassword());
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        this.genericoUsu = new GenericoDAO(Usuario.class, sessao);
 
-        for (Usuario usuario : this.usuarios) {
-            if (usuario.getNome().equals(this.nome.getText()) && usuario.getSenha().equals(senhaa)) {
-                validarUsuario = false;
-                new TelaInicial(usuario);
-                this.dispose();
-            }
-        }
+        //sql responsavel por pegar os dados na base
+        String sql = "select * from Usuario where nome = ? and senha = ?";
+        String[] atributos = new String[]{"nome", "senha"};
+        String[] valores = new String[]{nome.getText(), senha.getText()};
 
-        if (validarUsuario == true) {
+        this.usuarios = (ArrayList<Usuario>) this.genericoUsu.getListBySQL(sql, atributos, valores);
+
+        if (this.usuarios.size() > 0) {
+            Usuario usuario = this.usuarios.get(0);
+            new TelaInicial(usuario);
+            this.dispose();
+        } else{
             JOptionPane.showMessageDialog(null, "Usuario não encontrado", "Atenção", JOptionPane.WARNING_MESSAGE);
             nome.setText("");
             senha.setText("");
         }
-
-
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     private void botaoEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseEntered

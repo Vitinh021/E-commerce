@@ -1,7 +1,6 @@
 package modelo.vo;                
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,11 +18,10 @@ public class Venda implements Serializable{
     private float valor, desconto;
     @OneToOne
     private Usuario usuario;
-    private ArrayList<ItemVenda> itens = new ArrayList<ItemVenda>();
 
     @Override
     public String toString() {
-        return "Venda{" + "id=" + id + ", opcaoVenda=" + opcaoVenda + ", local=" + local + ", data=" + data + ", valorTotal=" + valor + ", desconto=" + desconto + ", itens=" + itens + '}';
+        return "Venda{" + "id=" + id + ", opcaoVenda=" + opcaoVenda + ", local=" + local + ", data=" + data + ", valorTotal=" + valor + ", desconto=" + desconto + '}';
     }
 
     public int getId() {
@@ -74,14 +72,6 @@ public class Venda implements Serializable{
         this.desconto = desconto;
     }
 
-    public ArrayList<ItemVenda> getItens() {
-        return itens;
-    }
-
-    public void setItens(ArrayList<ItemVenda> itens) {
-        this.itens = itens;
-    }
-
     public String getData() {
         return data;
     }
@@ -89,5 +79,4 @@ public class Venda implements Serializable{
     public void setData(String data) {
         this.data = data;
     }
-
 }

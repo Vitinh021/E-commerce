@@ -1,6 +1,7 @@
 package visao;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.dao.GenericoDAO;
 import modelo.dao.HibernateUtil;
@@ -13,7 +14,7 @@ public class NovoUsuario extends javax.swing.JPanel {
         initComponents();
         this.setVisible(true);
         this.setBackground(Color.blue);
-        
+
         this.cadastrar.setOpaque(true);
         this.cadastrar.setBackground(Color.white);
         this.cadastrar.setForeground(Color.black);
@@ -33,9 +34,7 @@ public class NovoUsuario extends javax.swing.JPanel {
         permissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedor", "Administrador", "Master" }));
         permissao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Permissão", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
-        cadastrar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         cadastrar.setText("Cadastrar");
-        cadastrar.setFocusPainted(false);
         cadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 cadastrarMouseExited(evt);
@@ -59,49 +58,69 @@ public class NovoUsuario extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(senha)
-                            .addComponent(permissao, 0, 220, Short.MAX_VALUE)
-                            .addComponent(nome)))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(permissao, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
+                        .addGap(65, 65, 65)
                         .addComponent(cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(permissao, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cadastrar)
-                .addGap(23, 23, 23))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        if (this.nome.getText().equals("") || this.senha.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Complete todos os campos", "Atenção", JOptionPane.WARNING_MESSAGE);
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        GenericoDAO<Usuario> genericoUsu = new GenericoDAO<Usuario>(Usuario.class, sessao);
+        
+        String sql = "select * from Usuario where nome like ? order by nome asc";
+        String[] atributos = new String[]{"nome"};
+        String[] valores = new String[]{"%"};
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) genericoUsu.getListBySQL(sql, atributos, valores);
+
+        boolean existe = false;
+        for (Usuario usu : usuarios) {
+            if (this.nome.getText().equals(usu.getNome())) {
+                JOptionPane.showMessageDialog(null, "Usuário existente", "Atenção", JOptionPane.WARNING_MESSAGE);
+                nome.setText("");
+                existe = true;
+                break;
+            }
+        }
+
+        if (existe == false) {
+            if (this.nome.getText().equals("") || this.senha.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Complete todos os campos", "Atenção", JOptionPane.WARNING_MESSAGE);
+            } else {
+                Usuario usuario = new Usuario();
+                usuario.setNome(nome.getText());
+                usuario.setSenha(senha.getText());
+                usuario.setPermissao(permissao.getSelectedIndex());
+
+                genericoUsu.save(usuario);
+                sessao.close();
+
+                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                nome.setText("");
+                senha.setText("");
+                permissao.setSelectedIndex(0);
+            }
         } else {
-            Usuario usuario = new Usuario();
-            usuario.setNome(nome.getText());
-            usuario.setSenha(senha.getText());
-            usuario.setPermissao(permissao.getSelectedIndex());
-
-            Session sessao = HibernateUtil.getSessionFactory().openSession();
-            GenericoDAO<Usuario> genericoUsu = new GenericoDAO<Usuario>(Usuario.class, sessao);
-            genericoUsu.save(usuario);
             sessao.close();
-
-            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso", "Informação", JOptionPane.INFORMATION_MESSAGE);
-            nome.setText("");
-            senha.setText("");
-            permissao.setSelectedIndex(0);
         }
     }//GEN-LAST:event_cadastrarActionPerformed
 

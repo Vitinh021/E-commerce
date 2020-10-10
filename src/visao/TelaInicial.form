@@ -2,6 +2,11 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="barraMenu">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -28,37 +33,37 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="usuario">
+            <MenuItem class="javax.swing.JMenuItem" name="novoUsuario">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+Alt+U"/>
+                  <KeyStroke key="Shift+U"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoUsuarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="produto">
+            <MenuItem class="javax.swing.JMenuItem" name="novoProduto">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+Alt+P"/>
+                  <KeyStroke key="Shift+P"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Produto"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="produtoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novoProdutoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="venda">
+            <MenuItem class="javax.swing.JMenuItem" name="novaVenda">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+Alt+V"/>
+                  <KeyStroke key="Shift+V"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Venda"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vendaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novaVendaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -82,7 +87,7 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="usuarios">
+            <MenuItem class="javax.swing.JMenuItem" name="listarUsuarios">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+U"/>
@@ -90,10 +95,10 @@
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuariosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarUsuariosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="produtos">
+            <MenuItem class="javax.swing.JMenuItem" name="listarProdutos">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+P"/>
@@ -101,10 +106,10 @@
                 <Property name="text" type="java.lang.String" value="Produtos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="produtosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarProdutosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="vendas">
+            <MenuItem class="javax.swing.JMenuItem" name="listarVendas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+V"/>
@@ -112,7 +117,7 @@
                 <Property name="text" type="java.lang.String" value="Vendas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vendasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarVendasActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -136,61 +141,57 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="cadastrarDespesaEmpresa">
+            <MenuItem class="javax.swing.JMenuItem" name="novaDespesa">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+Alt+E"/>
+                  <KeyStroke key="Shift+D"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar despesa empresarial "/>
+                <Property name="text" type="java.lang.String" value="Cadastrar Despesa"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarDespesaEmpresaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="novaDespesaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="cadastrarDespesaPessoal">
+            <MenuItem class="javax.swing.JMenuItem" name="listarDespesas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+Alt+P"/>
+                  <KeyStroke key="Alt+D"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cadastrar despesa pessoal"/>
+                <Property name="text" type="java.lang.String" value="listar Despesas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarDespesaPessoalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarDespesasActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="listarDespesaEmpresa">
+            <Menu class="javax.swing.JMenu" name="fecharCaixa">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+Ctrl+E"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="listar despesa empresarial"/>
+                <Property name="text" type="java.lang.String" value="Fechar Caixa"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarDespesaEmpresaActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="listarDespesaPessoal">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+Ctrl+P"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="listar despesa pessoal"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarDespesaPessoalActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="relatorio">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+Alt+L"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relatorioActionPerformed"/>
-              </Events>
-            </MenuItem>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="fecharCaixaHoje">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Shift+Alt+H"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Hoje"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fecharCaixaHojeActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="fecharCaixaData">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Shift+Alt+D"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Por data"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fecharCaixaDataActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
       </SubComponents>

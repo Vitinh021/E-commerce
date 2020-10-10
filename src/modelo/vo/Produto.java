@@ -37,10 +37,6 @@ public class Produto implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
 
     public String getCodigo() {
         return codigo;

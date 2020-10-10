@@ -47,11 +47,11 @@ Contributor(s):
     <property name="hibernate.connection.username">loja_user</property>
     <property name="hibernate.connection.password">1234523</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.connection.autocommit">true</property>
     <mapping class="modelo.vo.Usuario"/>
     <mapping class="modelo.vo.Produto"/>
     <mapping class="modelo.vo.Venda"/>
     <mapping class="modelo.vo.ItemVenda"/>
-    <mapping class="modelo.vo.DespesaEmpresa"/>
-    <mapping class="modelo.vo.DespesaPessoal"/>
+    <mapping class="modelo.vo.FluxoCaixa"/>
   </session-factory>
 </hibernate-configuration>

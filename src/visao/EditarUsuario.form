@@ -16,102 +16,102 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-              <Component id="atualizar" min="-2" pref="100" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="permissao" pref="212" max="32767" attributes="0"/>
-                  <Component id="confirmarSenha" alignment="1" pref="212" max="32767" attributes="0"/>
-                  <Component id="nome" alignment="0" max="32767" attributes="0"/>
-                  <Component id="senhaAtual" alignment="0" max="32767" attributes="0"/>
-                  <Component id="senhaNova" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="ver0" pref="40" max="32767" attributes="0"/>
-                      <Component id="ver1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <Component id="nome" min="-2" pref="212" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="ver2" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <Component id="senhaAtual" min="-2" pref="212" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="verSenhaAtual" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                      <Component id="senhaNova" min="-2" pref="212" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="verNovaSenha" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="confirmarSenha" min="-2" pref="212" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="verConfirmarSenha" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="permissao" min="-2" pref="212" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="atualizar" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                      <Component id="ver0" min="-2" pref="27" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="nome" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="senhaAtual" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <Component id="nome" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="verSenhaAtual" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="senhaAtual" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="ver1" min="-2" pref="24" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="senhaNova" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="senhaNova" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="verNovaSenha" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="ver2" min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="confirmarSenha" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="confirmarSenha" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="verConfirmarSenha" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="permissao" min="-2" pref="57" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="atualizar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="ver0">
-      <Events>
-        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ver0MouseExited"/>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ver0MouseEntered"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ver0ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="ver1">
+    <Component class="javax.swing.JButton" name="verSenhaAtual">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ver1MouseExited"/>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ver1MouseEntered"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ver1ActionPerformed"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verSenhaAtualMouseExited"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verSenhaAtualMouseEntered"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verSenhaAtualActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ver2">
+    <Component class="javax.swing.JButton" name="verNovaSenha">
       <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ver2MouseExited"/>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ver2MouseEntered"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ver2ActionPerformed"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verNovaSenhaMouseExited"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verNovaSenhaMouseEntered"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verNovaSenhaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="verConfirmarSenha">
+      <Properties>
+        <Property name="focusPainted" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verConfirmarSenhaMouseExited"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verConfirmarSenhaMouseEntered"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verConfirmarSenhaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="confirmarSenha">

@@ -2,6 +2,7 @@ package visao;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import modelo.dao.GenericoDAO;
@@ -13,12 +14,14 @@ public class EditarUsuario extends javax.swing.JPanel {
 
     Usuario usuario;
     ListarUsuario telaListar;
+    JInternalFrame frameEditarUsuario;
     GenericoDAO<Usuario> genericoUsu;
 
-    public EditarUsuario(Usuario usu, TelaInicial tela, ListarUsuario telaListar) {
+    public EditarUsuario(Usuario usu, ListarUsuario telaListar, JInternalFrame frameEditarUsuario) {
         initComponents();
         this.usuario = usu;
         this.telaListar = telaListar;
+        this.frameEditarUsuario = frameEditarUsuario;
         this.setBackground(Color.blue);
         this.nome.setText(this.usuario.getNome());
 
@@ -40,37 +43,36 @@ public class EditarUsuario extends javax.swing.JPanel {
 
         this.senhaNova.setEnabled(false);
         this.confirmarSenha.setEnabled(false);
-        this.ver1.setEnabled(false);
-        this.ver2.setEnabled(false);
+        this.verNovaSenha.setEnabled(false);
+        this.verConfirmarSenha.setEnabled(false);
 
-        this.ver0.setSize(40, 25);
-        this.ver0.setOpaque(true);
-        this.ver0.setBackground(Color.white);
-        this.ver0.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
+        this.verSenhaAtual.setSize(40, 25);
+        this.verSenhaAtual.setOpaque(true);
+        this.verSenhaAtual.setBackground(Color.white);
+        this.verSenhaAtual.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
 
-        this.ver1.setSize(40, 25);
-        this.ver1.setOpaque(true);
-        this.ver1.setBackground(Color.white);
-        this.ver1.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
+        this.verNovaSenha.setSize(40, 25);
+        this.verNovaSenha.setOpaque(true);
+        this.verNovaSenha.setBackground(Color.white);
+        this.verNovaSenha.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
 
-        this.ver2.setSize(40, 25);
-        this.ver2.setOpaque(true);
-        this.ver2.setBackground(Color.white);
-        this.ver2.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
+        this.verConfirmarSenha.setSize(40, 25);
+        this.verConfirmarSenha.setOpaque(true);
+        this.verConfirmarSenha.setBackground(Color.white);
+        this.verConfirmarSenha.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
 
         this.atualizar.setOpaque(true);
         this.atualizar.setBackground(Color.white);
         this.atualizar.setForeground(Color.black);
-
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ver0 = new javax.swing.JButton();
-        ver1 = new javax.swing.JButton();
-        ver2 = new javax.swing.JButton();
+        verSenhaAtual = new javax.swing.JButton();
+        verNovaSenha = new javax.swing.JButton();
+        verConfirmarSenha = new javax.swing.JButton();
         confirmarSenha = new javax.swing.JPasswordField();
         nome = new javax.swing.JTextField();
         permissao = new javax.swing.JComboBox<>();
@@ -78,47 +80,48 @@ public class EditarUsuario extends javax.swing.JPanel {
         senhaAtual = new javax.swing.JPasswordField();
         senhaNova = new javax.swing.JPasswordField();
 
-        ver0.addMouseListener(new java.awt.event.MouseAdapter() {
+        verSenhaAtual.setFocusPainted(false);
+        verSenhaAtual.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ver0MouseExited(evt);
+                verSenhaAtualMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ver0MouseEntered(evt);
+                verSenhaAtualMouseEntered(evt);
             }
         });
-        ver0.addActionListener(new java.awt.event.ActionListener() {
+        verSenhaAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ver0ActionPerformed(evt);
+                verSenhaAtualActionPerformed(evt);
             }
         });
 
-        ver1.setEnabled(false);
-        ver1.addMouseListener(new java.awt.event.MouseAdapter() {
+        verNovaSenha.setFocusPainted(false);
+        verNovaSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ver1MouseExited(evt);
+                verNovaSenhaMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ver1MouseEntered(evt);
+                verNovaSenhaMouseEntered(evt);
             }
         });
-        ver1.addActionListener(new java.awt.event.ActionListener() {
+        verNovaSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ver1ActionPerformed(evt);
+                verNovaSenhaActionPerformed(evt);
             }
         });
 
-        ver2.setEnabled(false);
-        ver2.addMouseListener(new java.awt.event.MouseAdapter() {
+        verConfirmarSenha.setFocusPainted(false);
+        verConfirmarSenha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ver2MouseExited(evt);
+                verConfirmarSenhaMouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ver2MouseEntered(evt);
+                verConfirmarSenhaMouseEntered(evt);
             }
         });
-        ver2.addActionListener(new java.awt.event.ActionListener() {
+        verConfirmarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ver2ActionPerformed(evt);
+                verConfirmarSenhaActionPerformed(evt);
             }
         });
 
@@ -159,74 +162,78 @@ public class EditarUsuario extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(permissao, 0, 212, Short.MAX_VALUE)
-                    .addComponent(confirmarSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                    .addComponent(nome)
-                    .addComponent(senhaAtual)
-                    .addComponent(senhaNova))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ver0, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                        .addComponent(ver1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(ver2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(senhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(senhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verNovaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(confirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(permissao, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(verSenhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(ver0, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(senhaAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(senhaNova, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verNovaSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(ver1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(senhaNova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(ver2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(confirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(confirmarSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verConfirmarSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(permissao, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(atualizar)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
-        if (this.nome.equals("")) {
+        if (this.nome.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Complete o campo 'Nome' ", "Atenção", JOptionPane.WARNING_MESSAGE);
         } else {
-
             this.usuario.setNome(nome.getText());
             this.usuario.setPermissao(permissao.getSelectedIndex());
 
-            if (this.usuario.getSenha().equals(this.senhaAtual.getPassword())) {
-                if (!this.senhaNova.equals("") && !this.confirmarSenha.equals("") && this.senhaNova.equals(this.confirmarSenha)) {
-                    String senhaN = new String(this.senhaNova.getPassword());
-                    this.usuario.setSenha(senhaN);
-                } else {
+            if (this.senhaNova.isEnabled()) {
+                String senhaNovaSTR = new String(this.senhaNova.getPassword());
+                String confirmarSenhaSTR = new String(this.confirmarSenha.getPassword());
+
+                if (senhaNovaSTR.equals("") || confirmarSenhaSTR.equals("") || !senhaNovaSTR.equals(confirmarSenhaSTR)) {
                     JOptionPane.showMessageDialog(null, "Sua senha não foi alterada", "Atenção", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    this.usuario.setSenha(senhaNovaSTR);
+                    JOptionPane.showMessageDialog(null, "Sua senha foi alterada", "Atenção", JOptionPane.WARNING_MESSAGE);
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Sua senha não foi alterada", "Atenção", JOptionPane.WARNING_MESSAGE);
             }
 
             Session sessao = HibernateUtil.getSessionFactory().openSession();
@@ -235,34 +242,39 @@ public class EditarUsuario extends javax.swing.JPanel {
             this.genericoUsu.update(usuario);
             sessao.close();
             JOptionPane.showMessageDialog(null, "Atualizado", "Informação", JOptionPane.INFORMATION_MESSAGE);
-            telaListar.carregartabela();
+            this.telaListar.carregarUsuarios();
+            this.frameEditarUsuario.dispose();
+
         }
 
     }//GEN-LAST:event_atualizarActionPerformed
 
-    private void ver0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver0ActionPerformed
+    private void verSenhaAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verSenhaAtualActionPerformed
         this.ver(this.senhaAtual);
-    }//GEN-LAST:event_ver0ActionPerformed
+    }//GEN-LAST:event_verSenhaAtualActionPerformed
 
-    private void ver2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver2ActionPerformed
+    private void verConfirmarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verConfirmarSenhaActionPerformed
         this.ver(this.senhaNova);
-    }//GEN-LAST:event_ver2ActionPerformed
+    }//GEN-LAST:event_verConfirmarSenhaActionPerformed
 
-    private void ver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver1ActionPerformed
+    private void verNovaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verNovaSenhaActionPerformed
         this.ver(this.confirmarSenha);
-    }//GEN-LAST:event_ver1ActionPerformed
+    }//GEN-LAST:event_verNovaSenhaActionPerformed
 
     private void senhaAtualKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_senhaAtualKeyReleased
-        if (this.usuario.getSenha().equals(this.senhaAtual.getPassword() + "")) {
+        String senhaa = new String(this.senhaAtual.getPassword());
+        if (this.usuario.getSenha().equals(senhaa)) {
             this.senhaNova.setEnabled(true);
             this.confirmarSenha.setEnabled(true);
-            this.ver1.setEnabled(true);
-            this.ver2.setEnabled(true);
+            this.verNovaSenha.setEnabled(true);
+            this.verConfirmarSenha.setEnabled(true);
         } else {
+            this.senhaNova.setText("");
+            this.confirmarSenha.setText("");
             this.senhaNova.setEnabled(false);
             this.confirmarSenha.setEnabled(false);
-            this.ver1.setEnabled(false);
-            this.ver2.setEnabled(false);
+            this.verNovaSenha.setEnabled(false);
+            this.verConfirmarSenha.setEnabled(false);
         }
     }//GEN-LAST:event_senhaAtualKeyReleased
 
@@ -276,41 +288,41 @@ public class EditarUsuario extends javax.swing.JPanel {
         this.atualizar.setForeground(Color.black);
     }//GEN-LAST:event_atualizarMouseExited
 
-    private void ver0MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ver0MouseEntered
-        this.ver0.setBackground(Color.red);
-        this.ver0.setIcon(new ImageIcon("src/imagens/eyeWhite.png"));
+    private void verSenhaAtualMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verSenhaAtualMouseEntered
+        this.verSenhaAtual.setBackground(Color.red);
+        this.verSenhaAtual.setIcon(new ImageIcon("src/imagens/eyeWhite.png"));
         senhaAtual.setEchoChar((char) 0);
-    }//GEN-LAST:event_ver0MouseEntered
+    }//GEN-LAST:event_verSenhaAtualMouseEntered
 
-    private void ver0MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ver0MouseExited
-        this.ver0.setBackground(Color.white);
-        this.ver0.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
+    private void verSenhaAtualMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verSenhaAtualMouseExited
+        this.verSenhaAtual.setBackground(Color.white);
+        this.verSenhaAtual.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
         senhaAtual.setEchoChar('•');
-    }//GEN-LAST:event_ver0MouseExited
+    }//GEN-LAST:event_verSenhaAtualMouseExited
 
-    private void ver1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ver1MouseEntered
-        this.ver1.setBackground(Color.red);
-        this.ver1.setIcon(new ImageIcon("src/imagens/eyeWhite.png"));
+    private void verNovaSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verNovaSenhaMouseEntered
+        this.verNovaSenha.setBackground(Color.red);
+        this.verNovaSenha.setIcon(new ImageIcon("src/imagens/eyeWhite.png"));
         senhaNova.setEchoChar((char) 0);
-    }//GEN-LAST:event_ver1MouseEntered
+    }//GEN-LAST:event_verNovaSenhaMouseEntered
 
-    private void ver1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ver1MouseExited
-        this.ver1.setBackground(Color.white);
-        this.ver1.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
+    private void verNovaSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verNovaSenhaMouseExited
+        this.verNovaSenha.setBackground(Color.white);
+        this.verNovaSenha.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
         senhaNova.setEchoChar('•');
-    }//GEN-LAST:event_ver1MouseExited
+    }//GEN-LAST:event_verNovaSenhaMouseExited
 
-    private void ver2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ver2MouseEntered
-        this.ver2.setBackground(Color.red);
-        this.ver2.setIcon(new ImageIcon("src/imagens/eyeWhite.png"));
+    private void verConfirmarSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verConfirmarSenhaMouseEntered
+        this.verConfirmarSenha.setBackground(Color.red);
+        this.verConfirmarSenha.setIcon(new ImageIcon("src/imagens/eyeWhite.png"));
         confirmarSenha.setEchoChar((char) 0);
-    }//GEN-LAST:event_ver2MouseEntered
+    }//GEN-LAST:event_verConfirmarSenhaMouseEntered
 
-    private void ver2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ver2MouseExited
-        this.ver2.setBackground(Color.white);
-        this.ver2.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
+    private void verConfirmarSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verConfirmarSenhaMouseExited
+        this.verConfirmarSenha.setBackground(Color.white);
+        this.verConfirmarSenha.setIcon(new ImageIcon("src/imagens/eyeBlack.png"));
         confirmarSenha.setEchoChar('•');
-    }//GEN-LAST:event_ver2MouseExited
+    }//GEN-LAST:event_verConfirmarSenhaMouseExited
 
     public void ver(JPasswordField senha) {
         if (senha.getEchoChar() == 0) {
@@ -327,9 +339,9 @@ public class EditarUsuario extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> permissao;
     private javax.swing.JPasswordField senhaAtual;
     private javax.swing.JPasswordField senhaNova;
-    private javax.swing.JButton ver0;
-    private javax.swing.JButton ver1;
-    private javax.swing.JButton ver2;
+    private javax.swing.JButton verConfirmarSenha;
+    private javax.swing.JButton verNovaSenha;
+    private javax.swing.JButton verSenhaAtual;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
 
 import java.text.DateFormat;
@@ -14,7 +9,7 @@ import java.util.Date;
  *
  * @author marcos-victor
  */
-public class DataHora {
+public class Data {
 
     public static String getHora() {
 
@@ -29,6 +24,12 @@ public class DataHora {
     public static String getData() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String dataFormatada = dateFormat.format(new Date());
+        return dataFormatada;
+    }
+
+    public static String formataData(String data) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String dataFormatada = dateFormat.format(data);
         return dataFormatada;
     }
 

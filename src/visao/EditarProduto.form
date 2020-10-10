@@ -16,23 +16,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="codigo" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="nome" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="preco" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="qtd" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                      <Component id="atualizar" min="-2" pref="101" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <Component id="atualizar" min="-2" pref="101" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="nome" alignment="0" pref="200" max="32767" attributes="0"/>
+                  <Component id="codigo" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="qtd" alignment="0" pref="100" max="32767" attributes="0"/>
+                      <Component id="preco" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,15 +40,15 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="nome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="codigo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="preco" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="qtd" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="preco" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="qtd" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="atualizar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,17 +78,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="codigo">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder position="3" title="Codigo">
-              <Font PropertyName="font" name="Dialog" size="12" style="1"/>
-            </TitledBorder>
-          </Border>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JFormattedTextField" name="preco">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -99,19 +87,36 @@
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSpinner" name="qtd">
+    <Component class="javax.swing.JFormattedTextField" name="qtd">
       <Properties>
-        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="1.0" minimum="1.0" numberType="java.lang.Float" stepSize="1.0" type="number"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="1" position="3" title="Qtd">
+            <TitledBorder position="3" title="Qtd">
               <Font PropertyName="font" name="Dialog" size="12" style="1"/>
             </TitledBorder>
           </Border>
+        </Property>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="codigo">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder position="3" title=" Codigo de barras">
+              <Font PropertyName="font" name="Dialog" size="12" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
         </Property>
       </Properties>
     </Component>

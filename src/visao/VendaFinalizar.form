@@ -17,95 +17,78 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="subTotal" min="-2" pref="119" max="-2" attributes="0"/>
-                              <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
-                              <Component id="troco" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="voltar" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="usuario" max="32767" attributes="0"/>
+                          <Component id="opcaoVenda" pref="132" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="local" min="-2" pref="134" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="subTotal" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="total" max="32767" attributes="0"/>
+                          <Component id="data" pref="128" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="voltar" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
                               <Component id="finalizar" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="total" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="desconto" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="dinheiro" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="troco" min="-2" pref="128" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="local" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="opcaoVenda" min="-2" pref="132" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="usuario" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="desconto" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="data" pref="120" max="32767" attributes="0"/>
-                          <Component id="valor" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="12" pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                      <Component id="opcaoVenda" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="data" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="usuario" alignment="0" pref="40" max="32767" attributes="0"/>
-                  </Group>
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="local" max="32767" attributes="0"/>
+                  <Component id="data" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="usuario" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="local" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="valor" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
-                      <Component id="desconto" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="subTotal" min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="troco" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="opcaoVenda" min="-2" max="-2" attributes="0"/>
                   <Component id="total" min="-2" pref="60" max="-2" attributes="0"/>
+                  <Component id="subTotal" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="desconto" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="dinheiro" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="troco" min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="finalizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="voltar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -121,6 +104,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder justification="2" position="3" title="Total">
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" red="ff" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -136,6 +120,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder justification="2" position="3" title="SubTotal">
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -150,6 +135,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder justification="2" position="3" title="Usu&#xe1;rio">
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -181,8 +167,8 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
             <StringItem index="0" value="Dinheiro"/>
-            <StringItem index="1" value="D&#xe9;bito"/>
-            <StringItem index="2" value="Cr&#xe9;dito"/>
+            <StringItem index="1" value="Debito"/>
+            <StringItem index="2" value="Credito"/>
           </StringArray>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -220,6 +206,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder justification="2" position="3" title="Troco">
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
+              <Color PropertyName="color" blue="0" green="0" red="ff" type="rgb"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -255,11 +242,11 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="valor">
+    <Component class="javax.swing.JFormattedTextField" name="dinheiro">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="3" title="Valor">
+            <TitledBorder justification="2" position="3" title="Dinheiro">
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
             </TitledBorder>
           </Border>
@@ -272,7 +259,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="valorKeyReleased"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dinheiroKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="data">

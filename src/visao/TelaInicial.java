@@ -3,6 +3,7 @@ package visao;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import modelo.vo.Usuario;
+import util.Data;
 
 /**
  *
@@ -17,11 +18,11 @@ public class TelaInicial extends javax.swing.JFrame {
         this.usuarioOBJ = usuario;
         switch (usuario.getPermissao()) {
             case Usuario.VENDEDOR: {
-                this.usuario.setVisible(false);
-                this.usuarios.setVisible(false);
-                this.produto.setVisible(false);
+                this.novoUsuario.setVisible(false);
+                this.listarUsuarios.setVisible(false);
+                this.novoProduto.setVisible(false);
                 this.financas.setVisible(false);
-                this.vendas.setVisible(true);
+                this.listarVendas.setVisible(true);
                 this.painel.setVisible(true);
                 this.setVisible(true);
                 this.dispose();
@@ -53,22 +54,25 @@ public class TelaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         painel = new javax.swing.JDesktopPane();
         barraMenu = new javax.swing.JMenuBar();
         cadastrar = new javax.swing.JMenu();
-        usuario = new javax.swing.JMenuItem();
-        produto = new javax.swing.JMenuItem();
-        venda = new javax.swing.JMenuItem();
+        novoUsuario = new javax.swing.JMenuItem();
+        novoProduto = new javax.swing.JMenuItem();
+        novaVenda = new javax.swing.JMenuItem();
         listar = new javax.swing.JMenu();
-        usuarios = new javax.swing.JMenuItem();
-        produtos = new javax.swing.JMenuItem();
-        vendas = new javax.swing.JMenuItem();
+        listarUsuarios = new javax.swing.JMenuItem();
+        listarProdutos = new javax.swing.JMenuItem();
+        listarVendas = new javax.swing.JMenuItem();
         financas = new javax.swing.JMenu();
-        cadastrarDespesaEmpresa = new javax.swing.JMenuItem();
-        cadastrarDespesaPessoal = new javax.swing.JMenuItem();
-        listarDespesaEmpresa = new javax.swing.JMenuItem();
-        listarDespesaPessoal = new javax.swing.JMenuItem();
-        relatorio = new javax.swing.JMenuItem();
+        novaDespesa = new javax.swing.JMenuItem();
+        listarDespesas = new javax.swing.JMenuItem();
+        fecharCaixa = new javax.swing.JMenu();
+        fecharCaixaHoje = new javax.swing.JMenuItem();
+        fecharCaixaData = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Inicial");
@@ -94,32 +98,32 @@ public class TelaInicial extends javax.swing.JFrame {
         cadastrar.setText("Cadastrar  ");
         cadastrar.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
 
-        usuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        usuario.setText("Usuário");
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        novoUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK));
+        novoUsuario.setText("Usuário");
+        novoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                novoUsuarioActionPerformed(evt);
             }
         });
-        cadastrar.add(usuario);
+        cadastrar.add(novoUsuario);
 
-        produto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        produto.setText("Produto");
-        produto.addActionListener(new java.awt.event.ActionListener() {
+        novoProduto.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        novoProduto.setText("Produto");
+        novoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                produtoActionPerformed(evt);
+                novoProdutoActionPerformed(evt);
             }
         });
-        cadastrar.add(produto);
+        cadastrar.add(novoProduto);
 
-        venda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        venda.setText("Venda");
-        venda.addActionListener(new java.awt.event.ActionListener() {
+        novaVenda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK));
+        novaVenda.setText("Venda");
+        novaVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vendaActionPerformed(evt);
+                novaVendaActionPerformed(evt);
             }
         });
-        cadastrar.add(venda);
+        cadastrar.add(novaVenda);
 
         barraMenu.add(cadastrar);
 
@@ -129,32 +133,32 @@ public class TelaInicial extends javax.swing.JFrame {
         listar.setText("listar  ");
         listar.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
 
-        usuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK));
-        usuarios.setText("Usuários");
-        usuarios.addActionListener(new java.awt.event.ActionListener() {
+        listarUsuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK));
+        listarUsuarios.setText("Usuários");
+        listarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuariosActionPerformed(evt);
+                listarUsuariosActionPerformed(evt);
             }
         });
-        listar.add(usuarios);
+        listar.add(listarUsuarios);
 
-        produtos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
-        produtos.setText("Produtos");
-        produtos.addActionListener(new java.awt.event.ActionListener() {
+        listarProdutos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
+        listarProdutos.setText("Produtos");
+        listarProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                produtosActionPerformed(evt);
+                listarProdutosActionPerformed(evt);
             }
         });
-        listar.add(produtos);
+        listar.add(listarProdutos);
 
-        vendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
-        vendas.setText("Vendas");
-        vendas.addActionListener(new java.awt.event.ActionListener() {
+        listarVendas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
+        listarVendas.setText("Vendas");
+        listarVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vendasActionPerformed(evt);
+                listarVendasActionPerformed(evt);
             }
         });
-        listar.add(vendas);
+        listar.add(listarVendas);
 
         barraMenu.add(listar);
 
@@ -164,50 +168,45 @@ public class TelaInicial extends javax.swing.JFrame {
         financas.setText("Finanças");
         financas.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
 
-        cadastrarDespesaEmpresa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
-        cadastrarDespesaEmpresa.setText("Cadastrar despesa empresarial ");
-        cadastrarDespesaEmpresa.addActionListener(new java.awt.event.ActionListener() {
+        novaDespesa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK));
+        novaDespesa.setText("Cadastrar Despesa");
+        novaDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarDespesaEmpresaActionPerformed(evt);
+                novaDespesaActionPerformed(evt);
             }
         });
-        financas.add(cadastrarDespesaEmpresa);
+        financas.add(novaDespesa);
 
-        cadastrarDespesaPessoal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
-        cadastrarDespesaPessoal.setText("Cadastrar despesa pessoal");
-        cadastrarDespesaPessoal.addActionListener(new java.awt.event.ActionListener() {
+        listarDespesas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
+        listarDespesas.setText("listar Despesas");
+        listarDespesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrarDespesaPessoalActionPerformed(evt);
+                listarDespesasActionPerformed(evt);
             }
         });
-        financas.add(cadastrarDespesaPessoal);
+        financas.add(listarDespesas);
 
-        listarDespesaEmpresa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        listarDespesaEmpresa.setText("listar despesa empresarial");
-        listarDespesaEmpresa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarDespesaEmpresaActionPerformed(evt);
-            }
-        });
-        financas.add(listarDespesaEmpresa);
+        fecharCaixa.setText("Fechar Caixa");
 
-        listarDespesaPessoal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        listarDespesaPessoal.setText("listar despesa pessoal");
-        listarDespesaPessoal.addActionListener(new java.awt.event.ActionListener() {
+        fecharCaixaHoje.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
+        fecharCaixaHoje.setText("Hoje");
+        fecharCaixaHoje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarDespesaPessoalActionPerformed(evt);
+                fecharCaixaHojeActionPerformed(evt);
             }
         });
-        financas.add(listarDespesaPessoal);
+        fecharCaixa.add(fecharCaixaHoje);
 
-        relatorio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        relatorio.setText("Relatório");
-        relatorio.addActionListener(new java.awt.event.ActionListener() {
+        fecharCaixaData.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
+        fecharCaixaData.setText("Por data");
+        fecharCaixaData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                relatorioActionPerformed(evt);
+                fecharCaixaDataActionPerformed(evt);
             }
         });
-        financas.add(relatorio);
+        fecharCaixa.add(fecharCaixaData);
+
+        financas.add(fecharCaixa);
 
         barraMenu.add(financas);
 
@@ -235,111 +234,115 @@ public class TelaInicial extends javax.swing.JFrame {
         this.usuarioOBJ = usuarioOBJ;
     }
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+    private void novoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUsuarioActionPerformed
         JInternalFrame tela = new JInternalFrame("Novo usuario");
-        tela.setSize(300, 300);
         tela.setClosable(true);
         tela.add(new NovoUsuario());
+        tela.setSize(260, 250);
         tela.setVisible(true);
-        tela.setLocation(painel.getWidth() / 2 - 150, painel.getHeight() / 2 - 150);
-        tela.requestFocus();
+        tela.setLocation(painel.getWidth() / 2 - 130, painel.getHeight() / 2 - 125);
         painel.add(tela);
-    }//GEN-LAST:event_usuarioActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_novoUsuarioActionPerformed
 
-    private void produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produtoActionPerformed
+    private void novoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoProdutoActionPerformed
         JInternalFrame tela = new JInternalFrame("Novo produto");
-        tela.setSize(300, 300);
+        tela.setSize(260, 280);
         tela.setClosable(true);
         tela.add(new NovoProduto());
         tela.setVisible(true);
-        tela.setLocation(painel.getWidth() / 2 - 150, painel.getHeight() / 2 - 150);
-        tela.requestFocus();
+        tela.setLocation(painel.getWidth() / 2 - 130, painel.getHeight() / 2 - 140);
         painel.add(tela);
-    }//GEN-LAST:event_produtoActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_novoProdutoActionPerformed
 
-    private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
+    private void listarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarUsuariosActionPerformed
         JInternalFrame tela = new JInternalFrame("Listagem de usuarios");
-        tela.setSize(600, 400);
+        tela.setSize(520, 385);
         tela.setClosable(true);
         tela.add(new ListarUsuario(this));
-        tela.setLocation(painel.getWidth() / 2 - 300, painel.getHeight() / 2 - 200);
+        tela.setLocation(painel.getWidth() / 2 - 260, painel.getHeight() / 2 - 190);
         tela.setVisible(true);
         painel.add(tela);
-    }//GEN-LAST:event_usuariosActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_listarUsuariosActionPerformed
 
-    private void produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produtosActionPerformed
+    private void listarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarProdutosActionPerformed
         JInternalFrame tela = new JInternalFrame("Listagem de produtos");
-        tela.setSize(600, 400);
+        tela.setSize(600, 410);
         tela.setClosable(true);
-        tela.add(new ListarProduto(this));
-        tela.setLocation(painel.getWidth() / 2 - 300, painel.getHeight() / 2 - 200);
+        tela.add(new ListarProduto(this, this.usuarioOBJ));
+        tela.setLocation(painel.getWidth() / 2 - 300, painel.getHeight() / 2 - 205);
         tela.setVisible(true);
         painel.add(tela);
-    }//GEN-LAST:event_produtosActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_listarProdutosActionPerformed
 
-    private void vendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendasActionPerformed
+    private void listarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarVendasActionPerformed
         JInternalFrame tela = new JInternalFrame("Listagem de vendas");
-        tela.setSize(750, 500);
+        tela.setSize(850, 485);
         tela.setClosable(true);
-        tela.add(new ListarVenda());
-        tela.setLocation(painel.getWidth() / 2 - 375, painel.getHeight() / 2 - 250);
+        tela.add(new ListarVenda(this));
+        tela.setLocation(painel.getWidth() / 2 - 425, painel.getHeight() / 2 - 240);
         tela.setVisible(true);
         painel.add(tela);
-    }//GEN-LAST:event_vendasActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_listarVendasActionPerformed
 
-    private void vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaActionPerformed
-        JInternalFrame tela = new JInternalFrame("Nova venda");
-        tela.setSize(800, 420);
-        tela.setClosable(true);
+    private void novaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaVendaActionPerformed
+        JInternalFrame tela = new JInternalFrame("Nova venda");  
+        tela.setSize(800, 430);
+        tela.setClosable(false);
         tela.add(new VendaProximo(this, this.usuarioOBJ, tela));
         tela.setVisible(true);
-        tela.setLocation(painel.getWidth() / 2 - 400, painel.getHeight() / 2 - 210);
+        tela.setLocation(painel.getWidth() / 2 - 400, painel.getHeight() / 2 - 215);
         painel.add(tela);
-    }//GEN-LAST:event_vendaActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_novaVendaActionPerformed
 
-    private void cadastrarDespesaEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarDespesaEmpresaActionPerformed
-        JInternalFrame tela = new JInternalFrame("Nova despesa empresa");
-        tela.setSize(300, 300);
+    private void novaDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaDespesaActionPerformed
+        JInternalFrame tela = new JInternalFrame("Nova Despesa");
+        tela.setSize(260, 350);
         tela.setClosable(true);
-        tela.add(new NovaDespesaEmpresa());
+        tela.add(new NovaDespesa());
         tela.setVisible(true);
-        tela.setLocation(painel.getWidth() / 2 - 150, painel.getHeight() / 2 - 150);
+        tela.setLocation(painel.getWidth() / 2 - 130, painel.getHeight() / 2 - 175);
         painel.add(tela);
-    }//GEN-LAST:event_cadastrarDespesaEmpresaActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_novaDespesaActionPerformed
 
-    private void listarDespesaEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarDespesaEmpresaActionPerformed
-        JInternalFrame tela = new JInternalFrame("Listagem de despesas empresarial");
-        tela.setSize(700, 400);
+    private void listarDespesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarDespesasActionPerformed
+        JInternalFrame tela = new JInternalFrame("Listagem de Despesas ");
+        tela.setSize(850, 485);
         tela.setClosable(true);
-        tela.add(new ListarDespesaEmpresa(this));
-        tela.setLocation(painel.getWidth() / 2 - 350, painel.getHeight() / 2 - 200);
-        tela.setVisible(true);
-        painel.add(tela);
-    }//GEN-LAST:event_listarDespesaEmpresaActionPerformed
-
-    private void cadastrarDespesaPessoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarDespesaPessoalActionPerformed
-        JInternalFrame tela = new JInternalFrame("Nova despesa pessoal");
-        tela.setSize(300, 300);
-        tela.setClosable(true);
-        tela.add(new NovaDespesaPessoal());
-        tela.setVisible(true);
-        tela.setLocation(painel.getWidth() / 2 - 150, painel.getHeight() / 2 - 150);
-        painel.add(tela);
-    }//GEN-LAST:event_cadastrarDespesaPessoalActionPerformed
-
-    private void listarDespesaPessoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarDespesaPessoalActionPerformed
-        JInternalFrame tela = new JInternalFrame("Listagem de despesas pessoais");
-        tela.setSize(700, 400);
-        tela.setClosable(true);
-        tela.add(new ListarDespesaPessoal(this));
-        tela.setLocation(painel.getWidth() / 2 - 350, painel.getHeight() / 2 - 200);
+        tela.add(new ListarDespesa(this));
+        tela.setLocation(painel.getWidth() / 2 - 425, painel.getHeight() / 2 - 240);
         tela.setVisible(true);
         painel.add(tela);
-    }//GEN-LAST:event_listarDespesaPessoalActionPerformed
+        tela.moveToFront();
+    }//GEN-LAST:event_listarDespesasActionPerformed
 
-    private void relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatorioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_relatorioActionPerformed
+    private void fecharCaixaHojeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharCaixaHojeActionPerformed
+        JInternalFrame tela = new JInternalFrame("Fechamento de caixa                                     Data: " + Data.getData());
+        tela.setSize(830, 400);
+        tela.setClosable(true);
+        tela.add(new FecharCaixaHoje());
+        tela.setLocation(painel.getWidth() / 2 - 415, painel.getHeight() / 2 - 200);
+        tela.setVisible(true);
+        painel.add(tela);
+        tela.moveToFront();
+    }//GEN-LAST:event_fecharCaixaHojeActionPerformed
+
+    private void fecharCaixaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharCaixaDataActionPerformed
+        JInternalFrame tela = new JInternalFrame("Fechamento de caixa por data");
+        tela.setSize(830, 400);
+        tela.setClosable(true);
+        tela.add(new FecharCaixaData());
+        tela.setLocation(painel.getWidth() / 2 - 415, painel.getHeight() / 2 - 200);
+        tela.setVisible(true);
+        painel.add(tela);
+        tela.moveToFront();
+    }//GEN-LAST:event_fecharCaixaDataActionPerformed
 
     public JDesktopPane getPainel() {
         return painel;
@@ -380,19 +383,20 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenu cadastrar;
-    private javax.swing.JMenuItem cadastrarDespesaEmpresa;
-    private javax.swing.JMenuItem cadastrarDespesaPessoal;
+    private javax.swing.JMenu fecharCaixa;
+    private javax.swing.JMenuItem fecharCaixaData;
+    private javax.swing.JMenuItem fecharCaixaHoje;
     private javax.swing.JMenu financas;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu listar;
-    private javax.swing.JMenuItem listarDespesaEmpresa;
-    private javax.swing.JMenuItem listarDespesaPessoal;
+    private javax.swing.JMenuItem listarDespesas;
+    private javax.swing.JMenuItem listarProdutos;
+    private javax.swing.JMenuItem listarUsuarios;
+    private javax.swing.JMenuItem listarVendas;
+    private javax.swing.JMenuItem novaDespesa;
+    private javax.swing.JMenuItem novaVenda;
+    private javax.swing.JMenuItem novoProduto;
+    private javax.swing.JMenuItem novoUsuario;
     private javax.swing.JDesktopPane painel;
-    private javax.swing.JMenuItem produto;
-    private javax.swing.JMenuItem produtos;
-    private javax.swing.JMenuItem relatorio;
-    private javax.swing.JMenuItem usuario;
-    private javax.swing.JMenuItem usuarios;
-    private javax.swing.JMenuItem venda;
-    private javax.swing.JMenuItem vendas;
     // End of variables declaration//GEN-END:variables
 }
